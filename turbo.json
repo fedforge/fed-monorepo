@@ -1,0 +1,32 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "apps/**/.next/**",
+        "apps/**/build/**",
+        "apps/**/out/**",
+        "packages/**/dist/**",
+        "!**/.next/cache/**"
+      ]
+    },
+    "export": {
+      "dependsOn": ["build"],
+      "outputs": ["apps/**/out/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": ["coverage/**"]
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

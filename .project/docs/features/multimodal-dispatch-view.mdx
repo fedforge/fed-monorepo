@@ -1,0 +1,64 @@
+# Feature: Multimodal Dispatch View
+
+## Description
+
+**Multimodal Dispatch View** lets users run FED from any interface — web, mobile, or terminal — with full feature parity. The platform is designed for real dispatchers working in real-world environments: phones in the cab, laptops at home, tablets in the office, and terminals in the cloud.
+
+The UI adapts across device types without compromising functionality or speed.
+
+---
+
+## Core Capabilities
+
+- 🖥️ **Web App (Default)**
+  - Full dashboard, component views, live AI actions, and Whisper-powered call control
+  - Built with Next.js + ShadCN + Solito
+
+- 📱 **Mobile App (Expo Native)**
+  - Simplified panel structure
+  - Swipeable agent tabs (FED, PacketPilot, ELDA)
+  - Background sync + offline support
+  - Driver and dispatcher views
+
+- 🖲️ **Terminal CLI**
+  - Supports agent control via command line (MARK)
+  - Example:
+    ```bash
+    mark --run packetpilot.mark --mode fill --input packet.pdf
+    ```
+  - Enables remote ops, headless servers, and scripting automation
+
+- 🔁 **Session Persistence**
+  - All devices sync via local DuckDB + WebSocket
+  - Seamless state handoff (start on mobile, finish on desktop)
+
+---
+
+## Use Case Examples
+
+- Dispatcher on desktop filling packets → gets call → opens mobile view, FED whispers real-time response
+- Driver logs in via mobile → sees load timeline → marks BOL as uploaded
+- Boss plan user runs `MARK` on a Raspberry Pi → dispatches 5 loads with Whisper CLI
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Web | Next.js + ShadCN + Tailwind |
+| Mobile | Expo + NativeWind + Solito |
+| CLI | MARK + Bun or Node |
+| Sync | WebSocket + DuckDB |
+| Orchestration | Ray + FastAPI |
+
+---
+
+## Tagline
+
+> **One stack, every device.**
+
+---
+
+## File Location
+.project/docs/FED/features/multimodal-dispatch-view\.md

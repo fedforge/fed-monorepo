@@ -1,0 +1,76 @@
+# Feature: Consent Mode
+
+## Description
+
+**Consent Mode** is the enforcement layer that ensures every action FED takes — from listening, recording, memory storage, or node sharing — is fully authorized by the user. It is designed to give users full control over what data is captured, stored, shared, or used to train AI agents.
+
+Consent Mode sits at the core of the legal and ethical foundation of the FED platform.
+
+---
+
+## Consent Categories
+
+FED supports **granular, user-controlled consent toggles** for:
+
+| Action | Description |
+|--------|-------------|
+| 🎧 Call Listening | Allows FED to transcribe phone calls in real-time via Whisper |
+| 🧠 Memory Logging | Allows transcribed call summaries or rate data to be stored locally |
+| 🌐 Node Sharing | Allows anonymized data to be used across the FED community |
+| 🗣️ AI Prompt Training | Allows call snippets or summary logs to be reused to improve prompt quality |
+| 🛠️ Agent Improvements | Allows anonymized feedback to improve PacketPilot, ELDA, etc. behavior |
+
+---
+
+## Consent UI (Dashboard)
+
+Each user has a **Consent Panel** in their dashboard with toggle switches like:
+
+- ✅ “Allow Whisper call transcription”
+- ✅ “Allow anonymized memory storage in DuckDB”
+- ❌ “Share my packet templates with the Node Network”
+- ✅ “Use my broker interaction history to improve FED screening accuracy”
+
+Changes are:
+- Logged instantly in OpenHWY for audit
+- Revocable at any time
+- Honored in real-time across all tools
+
+---
+
+## Enforcement & Logging
+
+| Component | Behavior |
+|----------|----------|
+| **OpenHWY** | Tracks consent log entries and revocation events |
+| **ELDA** | Denies unauthorized agent actions and enforces compliance |
+| **MARK** | Reads `.consent.md` into every agent's environment context before execution |
+| **DuckDB** | Will not store any fingerprinted data unless consent is on file |
+
+---
+
+## Plan-Level Defaults
+
+| Plan | Defaults |
+|------|----------|
+| **Free** | Call listening on, no storage, no node sharing |
+| **Starter** | Selective memory logging, optional node share |
+| **Pro** | Full access, AI feedback allowed |
+| **Boss** | Auto-enrollment in memory, node, and intelligent whispering unless opted out manually |
+
+---
+
+## User Flow
+
+```plaintext
+User opens Consent Settings →
+Toggles "Allow Call Listening" ON →
+MARK updates `.consent.md` →
+OpenHWY logs timestamp →
+Whisper Agent is now authorized
+````
+
+---
+
+## File Location
+.project/docs/FED/features/consent-mode.md

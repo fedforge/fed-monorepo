@@ -1,0 +1,73 @@
+# Feature: Node Network
+
+## Description
+
+The **Node Network** is FED’s distributed knowledge-sharing layer. It allows agents like PacketPilot, CargoConnect, and ELDA to make smarter decisions based on anonymized, consented user data shared across the platform.
+
+Users opt-in to become “Nodes” in the network, meaning their activity (e.g., rate history, load success, document templates) can be stored and reused by others — securely, privately, and with full transparency.
+
+---
+
+## Core Functions
+
+- 📡 **Rate Memory**
+  - Users who opt in to the Node Network help build a live map of rates, broker patterns, lane consistency, and negotiation outcomes.
+
+- 📁 **Packet Script Caching**
+  - Once a packet has been filled by a user, its structure and logic are saved and reused — other users receive prefilled packets instantly if a match is found.
+
+- 📖 **Form Intelligence**
+  - Every form filled trains the system (without PII) to better identify layout, label intent, field types, and submission strategy.
+
+- 🧠 **Local-Only + Shared Modes**
+  - Users can keep all memory local (on device, DuckDB), or opt to share into the network pool
+  - Shared memory is used to improve matching, autofill, and alerting across users
+
+---
+
+## Legal and Consent Model
+
+- 🚫 No data is ever shared without **explicit opt-in**
+- 🔒 All shared data is **anonymized** (no MCs, names, addresses)
+- ✅ Users can revoke Node status at any time
+- 🧾 Every Node interaction is logged to `OpenHWY` for traceability
+
+---
+
+## Example Use Cases
+
+| Agent | Behavior |
+|-------|----------|
+| **PacketPilot** | Fills a form instantly using a cached script from another user |
+| **CargoConnect** | Alerts a driver that a broker offered higher rates yesterday |
+| **Fed** | Hears negotiation tone and checks if that same script pattern was flagged by others |
+| **ELDA** | Warns user that a load was rejected previously for being unsafe or mismatched equipment |
+
+---
+
+## Community Dynamics
+
+- Users can:
+  - Join **node groups** (e.g., “Dry Van Solo Ops Midwest”)
+  - Get benefits like faster scripts, rate trends, better safety alerts
+  - Get credit rewards for contributions
+
+- FED can:
+  - Prioritize node-connected users for packet fill requests
+  - Build rate reports and dashboards powered by real usage
+
+---
+
+## Storage & Logic
+
+| Layer | Engine |
+|-------|--------|
+| Memory | `DuckDB` |
+| Kernel | `MARK` (Markdown Agent Routing Kernel) |
+| Tasks | `Ray` |
+| Consent Enforcement | `OpenHWY` (or ELDA) |
+
+---
+
+## File Location
+.project/docs/FED/features/node-network.md

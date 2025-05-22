@@ -1,0 +1,64 @@
+# Feature: Whisper Agent
+
+## Description
+
+The **Whisper Agent** is FED’s voice recognition and transcription assistant. It runs continuously in listening mode during phone calls or manual recording sessions, capturing conversation audio and transcribing it to structured text using Whisper (OpenAI or local).
+
+---
+
+## Core Functions
+
+- 🔊 **Live Call Listening**
+  - Transcribes real-time broker/driver phone calls
+  - Works over Twilio or device-native voice integration
+  - No human listening. AI only.
+
+- ✍️ **Transcription + Summarization**
+  - Converts broker conversations into clean, searchable dialogue
+  - Supports emotion detection, stall pattern tagging, and keyword flags
+
+- 🧠 **AI Insight Whispering**
+  - Detects tone, hesitation, script-like manipulation, or emotional baiting
+  - Sends quiet alerts to the dispatcher (via vibration, toast, or modal)
+  - Responds to user configuration (e.g., “Only whisper price flags”)
+
+- 🔒 **Consent-Controlled Recording**
+  - Default: Live transcription only, no storage
+  - Anonymized archiving of call summaries
+  - Users must approve storage, node participation, and AI training access
+
+---
+
+## Example Triggers
+
+| Situation | FED Whisper |
+|----------|--------------|
+| Broker repeats price 3x | “Script pattern detected: buyer’s trap.” |
+| Broker says “I’ll hold it for an hour” | “Soft stall tactic. Flag as maybe.” |
+| Broker offers 20% less than lane average | “Undervalued offer. Consider counter.” |
+
+---
+
+## Availability
+
+| Plan | Access |
+|------|--------|
+| **Free** | Live transcription, limited alerts, no storage |
+| **Starter** | 300 mins/month, soft whispering + transcription download |
+| **Pro** | 1000 mins/month, real-time alerts, pattern detection |
+| **Boss** | Unlimited usage, node training, whisper-to-agent chat
+
+---
+
+## Dependencies
+
+- `Twilio` or `Custom VoIP` handler
+- `Whisper.cpp` or `OpenAI Whisper API`
+- `Ray` for task handler 
+- `Mark Kernel` to analyze summary
+- `DuckDB` for persistent `Memory` tagging
+
+---
+
+## File Location
+.project/docs/FED/features/whisper-agent.md

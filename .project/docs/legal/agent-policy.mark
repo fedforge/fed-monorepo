@@ -1,0 +1,146 @@
+# MARK Agent Policy – Agent Execution Rules
+Fast & Easy Dispatching LLC
+
+This document defines behavioral limits and permission scopes for all AI agents operating under the FED platform. These include PacketPilot, CargoConnect, ELDA, and the routing kernel MARK. All agent activity is subject to audit logging and user consent.
+
+---
+
+## General Execution Rules
+
+- All agents must operate within the user’s current plan tier (Free, Starter, Pro, Boss).
+- Agents must never execute a command on behalf of a user without explicit opt-in or prior authorization.
+- All agent actions must be logged in OpenHWY, including timestamps, metadata, and execution result.
+- MARK is the only agent authorized to route or chain instructions between multiple agents.
+- Agents may not modify or delete legal records, audit logs, or signed documents.
+- Any AI signature or auto-fill action must be traceable to the original user session.
+
+---
+
+## PacketPilot
+
+### ✅ Allowed
+- Parse and cache blank packet templates
+- Autofill packet forms using injected metadata or pre-approved API
+- Log all form field decisions and AI-injected values
+- Auto-sign packet documents *only if* Boss plan + digital POA is active
+- Request fallback to OpenAI if authorized
+
+### ❌ Not Allowed
+- Process personal user data not included in packet metadata
+- Submit signed documents to external systems without confirmation
+- Execute dispatch actions without linked user input
+
+---
+
+## CargoConnect
+
+### ✅ Allowed
+- Connect to authorized load boards (DAT, Truckstop, internal APIs)
+- Cache offer metadata (e.g., origin, rate, date) for AI filtering
+- Route results to user dashboard, ELDA, or PacketPilot
+- Log all broker API interactions and load lookups
+
+### ❌ Not Allowed
+- Create external broker accounts or manage driver credentials
+- Store user dispatch history unless permitted
+- Execute bids or book loads without confirmation
+
+---
+
+## ELDA
+
+### ✅ Allowed
+- Assist drivers with safety questions, dispatch support, form uploads
+- Offer training content, AI-generated checklists, or log summaries
+- Read AI logs related to their own driving actions or behavior
+- Respond using local logic or approved fallback agent data
+
+### ❌ Not Allowed
+- Access broker systems, dispatch APIs, or cargo offers
+- Modify packet data, sign contracts, or alter metadata logs
+- Store driver location unless explicitly enabled
+
+---
+
+## MARK (Markdown Agent Routing Kernel)
+
+### ✅ Allowed
+- Read `.mark`, `.md`, and `.agent` files to route instructions
+- Execute scoped agent workflows (e.g., `task -> PacketPilot -> CargoConnect`)
+- Validate plan tier before activating tools
+- Store system-wide trace logs for all executions
+
+### ❌ Not Allowed
+- Act on incomplete or invalid prompts
+- Bypass user authentication or plan restrictions
+- Perform external API calls directly
+
+---
+
+## Agent Communication Rules
+
+- Agents must only talk to one another through MARK.
+- No direct agent-to-agent action routing without MARK’s validation layer.
+- Agent knowledge scopes must not bleed (i.e., ELDA should not know CargoConnect logs unless routed through MARK).
+
+---
+
+## Fallback Escalation
+
+- Agents may request fallback execution to OpenAI **only if**:
+  - User has enabled OpenAI fallback in settings
+  - The fallback request excludes personal data or is fully anonymized
+  - Fallback execution is logged and routed through OpenHWY
+
+---
+
+## Security Logging & Transparency
+
+- All agent actions are transparently stored in OpenHWY, including:
+  - Agent name
+  - Timestamp
+# MARK Agent Policy – Agent Execution Rules
+
+## General Rules
+- Agents may not take actions on behalf of users without prior consent
+- All agent actions are logged and routed through OpenHWY
+- Auto-signing of documents is only available under Boss plan with POA
+
+## PacketPilot
+- May parse packet structures and cache templates
+- May fill out forms using local or injected metadata
+- May auto-sign if POA consent is given and stored
+
+## CargoConnect
+- May access third-party APIs to collect load data
+- May not alter or store user data without permission
+
+## ELDA
+- May assist drivers with safety, training, and dispatch logic
+- May not interact with brokers or legal data directly
+
+## MARK
+- Executes routing logic between tools
+- Does not act without specific .mark instruction or user prompt
+
+  - Input context (hashed or redacted)
+  - Result
+  - Linked user account
+- Signature events include device fingerprint + IP hash + method (typed or drawn)
+
+---
+
+## Violations & Kill Switch
+
+- If any agent behavior is flagged as unauthorized, MARK will:
+  - Abort the action
+  - Record the violation
+  - Trigger a lockout for the agent until reviewed
+
+---
+
+## Enforcement Jurisdiction
+
+All agent policies are legally bound under the authority of Fast & Easy Dispatching LLC, governed by the State of Ohio.
+
+For questions or incident reviews, contact: legal@fedispatching.com

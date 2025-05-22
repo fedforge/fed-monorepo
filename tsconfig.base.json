@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // 🧠 Core JS/TS Settings
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
+
+    // ✅ Strictness
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // 💡 JSX default (overridable per tsconfig)
+    "jsx": "react-native",
+
+    // 🛣️ Monorepo Paths
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["packages/app/*"],
+      "@ui/*": ["packages/ui/*"],
+      "@hooks/*": ["packages/hooks/*"],
+      "@types/*": ["packages/types/*"],
+      "@libs/*": ["packages/libs/*"],
+      "@constants/*": ["packages/constants/*"],
+      "@components/*": ["packages/components/*"],
+      "@config/*": ["packages/config/*"],
+
+      "@web/*": ["apps/web/*"],
+      "@mobile/*": ["apps/mobile/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", ".turbo"]
+}

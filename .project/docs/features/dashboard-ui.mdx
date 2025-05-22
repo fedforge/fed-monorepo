@@ -1,0 +1,106 @@
+# Feature: Dashboard UI
+
+## Description
+
+The **Dashboard UI** is the central interface for all users in the FED platform. It visually reflects real-time status, AI activity, tool access, agent switching, and dispatcher operations. Inspired by high-end SaaS dashboards and TMS systems, the layout is optimized for speed, clarity, and intelligent UI reactions based on agent behavior and user tier.
+
+The UI is responsive across mobile, tablet, and desktop — built with **ShadCN**, **Solito**, **TailwindCSS**, and **Expo**.
+
+---
+
+## Core Sections
+
+### 📍 Sidebar (Bubble Switcher)
+- Displays agent icons (FED, PacketPilot, CargoConnect, ELDA, MARK, OpenHWY)
+- Clicking a bubble toggles the active agent
+- Sidebar collapses or slides depending on user interaction (hover, tap, swipe)
+- Powered-by icon (e.g., “Powered by MARK”) appears at the top
+
+### 🧭 Top Bar
+- Shows active domain (e.g., `fedispatching.com`)
+- Light/dark mode toggle
+- Search insights bar (“Try searching ‘my recent calls’”)
+- Current agent’s status chip (e.g., “Listening”, “Idle”, “Analyzing”)
+
+### 📦 Main Panel
+- Dynamically changes based on current agent view:
+  - **PacketPilot**: Show recent packets, fill request queue
+  - **CargoConnect**: Connected load boards, load matches
+  - **ELDA**: Driver safety alerts, flag reviews
+  - **OpenHWY**: Record viewer, audit logs, retention summary
+
+- Real-time components (WebSocket updates or Ray background sync)
+
+### 📊 Insight Cards
+- Metrics auto-generate based on active plan + current activity
+- Examples:
+  - “3 New Load Offers”
+  - “2 Broker Calls Flagged”
+  - “1 Packet Autofilled”
+
+### ⚙️ Footer Strip (for Boss+ tiers)
+- Quick actions:
+  - “Start Call Listening”
+  - “Log Rate”
+  - “Screen Broker”
+  - “Submit Packet”
+
+---
+
+## Navigation Structure
+
+```plaintext
+FED Dashboard
+├── Sidebar
+│   ├── Agent Bubbles (PP, CC, ELDA, MARK, HWY)
+│   └── Collapse Toggle
+├── Topbar
+│   ├── Domain
+│   ├── Light/Dark Toggle
+│   └── Active Agent Status
+├── Panel
+│   ├── Dynamic Agent Workspace
+│   └── Tabs: Loads / Packets / Forms / Calls / Reports
+├── Metrics + Insights
+├── Footer Quick Action Bar
+````
+
+---
+
+## Tech Stack
+
+| Layer          | Technology                    |
+| -------------- | ----------------------------- |
+| UI             | ShadCN + TailwindCSS          |
+| Layout         | Solito + Expo Router          |
+| State          | Zustand / Redux (planned)     |
+| Agent Runtime  | MARK                          |
+| AI Responses   | Whisper, OpenAI, Local Models |
+| Cross-platform | Solito (Web + Mobile)         |
+
+---
+
+## Accessibility
+
+* High-contrast theme toggle
+* Tooltips, icon labels, keyboard nav support
+* Mobile swipe nav and agent change
+* Whisper mode interface works with audio + visual prompts
+
+---
+
+## Storage
+
+* UI state is stored per device (client side)
+* Agent state is persisted via MARK and DuckDB if opted in
+
+---
+
+Dashboard Mock Examples: 
+
+[![Dialpad | Omnichannel Customer Service: AI-Powered Feature](https://tse1.mm.bing.net/th?id=OIP.db6gPpOeAjlebKld14HB_wHaEs\&pid=Api)](https://dialpad.com/jp/features/omnichannel-customer-service/)
+
+--- 
+
+## File Location
+.project/docs/FED/features/dashboard-ui.md

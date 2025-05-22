@@ -1,0 +1,62 @@
+# Feature: Auto Pricing Engine
+
+## Description
+
+The **Auto Pricing Engine** compares real-time market rates, client-specific goals, equipment types, and route difficulty to calculate optimal profit margins for each load. It allows dispatchers to price with confidence — whether countering broker offers or bidding proactively.
+
+This feature integrates with Rate Memory, Load Sync, and OpenHWY data to create strategic price suggestions based on actual market patterns, not guesswork.
+
+---
+
+## Core Capabilities
+
+- 📊 **Lane-Based Rate Estimation**
+  - Calculates average price per mile based on origin, destination, day of week, and equipment
+  - Uses past rate history from Rate Memory + Node Network (if enabled)
+
+- 🧮 **Profit Targeting**
+  - Dispatcher can define desired margin (e.g. 15%)
+  - Suggests minimum viable rate to meet that target based on fuel costs, miles, and deadhead
+
+- 🧠 **Smart Counter Offers**
+  - If a broker offer is received, FED auto-generates a response:
+    > “$425 below lane average — suggest counter at $2.88/mile with fuel inclusion.”
+
+- 🔎 **Market Volatility Adjustment**
+  - Adjusts output if current region is high-competition or low-demand
+  - Pulls recent rejection rates and rate compression data
+
+---
+
+## Use Case Example
+
+1. Load from ATL → CHI appears at $1.87/mile  
+2. FED checks:
+   - Lane average = $2.35/mile
+   - Driver’s profit goal = 20%
+   - Broker’s past average = $2.45/mile  
+3. FED recommends:  
+   > “Counter at $2.48/mile. Justified by lane average and broker precedent.”
+
+---
+
+## Dependencies
+
+| Component | Used For |
+|----------|-----------|
+| **DuckDB** | Lane rate memory, profit curve indexing |
+| **OpenHWY** | Global lane rates and regional benchmarks |
+| **MARK** | Execution of pricing heuristics |
+| **ELDA** | Ensures regulatory compliance with rate negotiation if required |
+| **CargoConnect** | Source of live rate offers from brokers/load boards |
+
+---
+
+## Tagline
+
+> **Profit margin targeting.**
+
+---
+
+## File Location
+.project/docs/FED/features/auto-pricing-engine.md

@@ -1,0 +1,115 @@
+### `packages/ui/button/Button.docs.mdx`
+
+````mdx
+---
+title: UI / Button
+description: A highly configurable, polymorphic button component built for web and native platforms.
+---
+
+import { Button } from './web'
+
+# Button
+
+A polymorphic, stylable button that supports:
+
+- Variants: `primary`, `secondary`, `ghost`, `outline`
+- Sizes: `sm`, `md`, `lg`
+- Intents: `info`, `danger`, `success`, `warning`
+- Tones: `subtle`, `neutral`, `strong`
+- Shapes: `round`, `square`, `pill`
+- Elevation levels: `none`, `sm`, `md`, `lg`
+
+---
+
+## Usage
+
+```tsx
+<Button variant="primary" size="md" intent="info">
+  Click Me
+</Button>
+````
+
+<Button variant="primary" size="md" intent="info">
+  Click Me
+</Button>
+
+---
+
+## Props
+
+| Prop        | Type              | Default     | Description                            |             |                            |                             |
+| ----------- | ----------------- | ----------- | -------------------------------------- | ----------- | -------------------------- | --------------------------- |
+| `variant`   | \`'primary'       | 'secondary' | 'ghost'\`                              | `'primary'` | Button color style         |                             |
+| `size`      | \`'sm'            | 'md'        | 'lg'\`                                 | `'md'`      | Button size                |                             |
+| `intent`    | \`'info'          | 'danger'    | 'success'                              | 'warning'\` | `undefined`                | Semantic meaning or purpose |
+| `tone`      | \`'subtle'        | 'neutral'   | 'strong'\`                             | `'neutral'` | Emphasis tone              |                             |
+| `shape`     | \`'round'         | 'square'    | 'pill'\`                               | `'round'`   | Button border radius style |                             |
+| `elevation` | \`'none'          | 'sm'        | 'md'                                   | 'lg'\`      | `'none'`                   | Visual depth                |
+| `asChild`   | `boolean`         | `false`     | Render as span or anchor (polymorphic) |             |                            |                             |
+| `children`  | `React.ReactNode` | `required`  | The button content                     |             |                            |                             |
+
+---
+
+## Live Examples
+
+### Secondary
+
+```tsx
+<Button variant="secondary">Cancel</Button>
+```
+
+<Button variant="secondary">Cancel</Button>
+
+### Ghost
+
+```tsx
+<Button variant="ghost" size="lg">More Info</Button>
+```
+
+<Button variant="ghost" size="lg">More Info</Button>
+
+---
+
+## Dark Mode Support
+
+Toggle your app’s `.dark` class to see this button adapt with your custom theme tokens.
+
+---
+
+## Custom Styling
+
+You can extend the button using your Tailwind theme:
+
+```tsx
+<Button className="bg-fed-pink hover:bg-fed-glow text-white">
+  Custom Glow
+</Button>
+```
+
+<Button className="bg-fed-pink hover:bg-fed-glow text-white">
+  Custom Glow
+</Button>
+
+---
+
+## Code Link
+
+View the source:
+
+```ts
+📁 packages/ui/button/
+├── web.tsx
+├── native.tsx
+├── props.ts
+├── Button.stories.tsx
+├── Button.docs.mdx ← this file
+```
+
+---
+
+### Notes
+
+* This doc supports your **design system, Storybook, and AI agents**.
+* You can **generate it with a script** later — we’ll hook that into your CLI.
+* You can use this pattern for every component in `packages/ui/`.
+

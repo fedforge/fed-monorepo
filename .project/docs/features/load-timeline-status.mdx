@@ -1,0 +1,72 @@
+# Feature: Load Timeline & Status
+
+## Description
+
+**Load Timeline & Status** is a real-time monitoring system that tracks each load from assignment to delivery, combining driver check-ins, broker communication, AI-flagged events, and geographic progress. It allows dispatchers and fleets to visualize the full lifecycle of a load in one clean interface — from quote to delivery.
+
+This feature works across web, mobile, and offline-sync environments to ensure visibility regardless of location.
+
+---
+
+## Core Capabilities
+
+- 🛰️ **Live Location Tracking**
+  - Integrates with mobile app GPS (via Expo) to update dispatcher on driver’s position
+  - Displays location, ETA, and time since last check-in
+
+- 📬 **Email + Call Ingestion**
+  - Pulls relevant load updates from broker emails or call transcriptions
+  - Detects mentions of changes, delays, cancellations, etc.
+
+- 🧠 **AI Delay Flagging**
+  - ELDA listens for language in calls/emails that implies risk
+  - Examples: “gate’s closed,” “won’t be ready until tomorrow,” “driver didn’t call”
+
+- 📆 **Load Lifecycle Timeline**
+  - Shows each step:
+    - Load offered
+    - Load accepted
+    - Packet sent
+    - Driver assigned
+    - En route
+    - Delivered
+    - Ratecon received
+    - Invoiced
+
+- 📥 **Status Card Rendering**
+  - Dispatchers and drivers both see visual status cards with timestamps and auto-notes
+
+---
+
+## Driver Visibility
+
+- Drivers see:
+  - Next stop + deadline
+  - Status log of current load
+  - Estimated pay amount (optional)
+- Drivers can trigger:
+  - “Running Late” or “Load Delivered” pings
+  - Proof of delivery photo upload
+
+---
+
+## Dependencies
+
+| Layer | Component |
+|-------|-----------|
+| Mobile Location | Expo Location + WebSockets |
+| Inbox Parsing | Whisper + Email Agent |
+| Timeline Storage | DuckDB (`loads` table) |
+| Alerting | ELDA |
+| Sync & Update | Ray background queue + MARK events |
+
+---
+
+## Tagline
+
+> **Driver status and ETA.**
+
+---
+
+## File Location
+.project/docs/FED/features/load-timeline-status.md

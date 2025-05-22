@@ -1,0 +1,62 @@
+# Feature: TMS Dashboard Integration
+
+## Description
+
+**TMS Dashboard Integration** allows users to either integrate their existing Transportation Management System (TMS) with FED — or use OpenHWY as a drop-in replacement. This enables full load lifecycle management, automated audit trails, and deep visibility into dispatch operations, without requiring a third-party SaaS.
+
+OpenHWY acts as the secure, AI-aware TMS backend that keeps all activity logged, structured, and legally referenceable.
+
+---
+
+## Core Capabilities
+
+- 🔄 **OpenHWY-Native Option**
+  - Users without a TMS can activate OpenHWY as their compliance-grade dispatch ledger
+  - Auto-logs calls, packets, rates, signatures, and load lifecycle
+
+- 🔗 **TMS Connectors**
+  - API bridges to popular TMS platforms (e.g., McLeod, AscendTMS, Tailwind)
+  - Syncs load creation, status, and billing records
+  - Optional: CSV/Excel drop-in support for lightweight ops
+
+- 🧠 **Agent-Aware Records**
+  - Every action taken by PacketPilot, CargoConnect, or ELDA is tied to a record
+  - Rate memory, packet fill, call screen, and dispute logs are stored against the load ID
+
+- 🔍 **Full Search + Filters**
+  - OpenHWY-powered dashboards let users search across:
+    - Past loads
+    - Broker contact history
+    - Flagged calls
+    - Delivered paperwork
+    - Dispatcher reputation scores
+
+---
+
+## Example Scenarios
+
+- Fleet uses Tailwind TMS → FED syncs packet logs + call flags into existing workflow
+- Solo dispatcher → activates OpenHWY → every action is stored + timestamped for audit
+- Boss plan fleet → sees all dispatcher logs + AI decisions directly inside TMS portal
+
+---
+
+## Dependencies
+
+| Layer | Description |
+|-------|-------------|
+| OpenHWY | Core TMS if no external integration |
+| Ray + DuckDB | Load memory + per-agent indexing |
+| MARK | Syncs logic back into `.logs/` and `/.audit/` files |
+| Webhooks/API | For external TMS sync or third-party SaaS bridge |
+
+---
+
+## Tagline
+
+> **OpenHWY-native.**
+
+---
+
+## File Location
+.project/docs/FED/features/tms-dashboard-integration.md

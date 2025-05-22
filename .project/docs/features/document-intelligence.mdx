@@ -1,0 +1,71 @@
+# Feature: Document Intelligence
+
+## Description
+
+**Document Intelligence** enables FED to read, understand, and extract structured data from complex logistics paperwork — including rate cons, packets, bills of lading (BOLs), COIs, W9s, and broker onboarding forms. It combines OCR (optical character recognition) with GPT-based layout parsing to convert unstructured PDFs into clean JSON ready for automation.
+
+This is the core vision layer behind PacketPilot and form automation workflows.
+
+---
+
+## Core Capabilities
+
+- 👁️ **Visual Parsing**
+  - Uses OCR to extract text from scanned or image-based documents (Tesseract or Vision API)
+  - GPT-based inference tags field meanings (e.g. “Pickup Location”, “Rate”, “Accessorials”)
+
+```
+
+- 📄 **Document-to-JSON Conversion**
+  - Standardizes rate cons, onboarding packets, and other forms into normalized JSON
+  - Enables autofill, packet scripting, and AI-driven response
+
+- 🔍 **Auto Field Matching**
+  - Links recognized fields to dispatcher profile fields or company MC# records
+  - Can learn from correction and build improved confidence over time
+
+- 🔐 **Secure, Local-First Option**
+  - All documents are processed locally by default unless user enables cloud fallback
+  - No document data is used for training unless consent is explicitly given
+
+---
+
+## Supported Docs
+
+| Type | Description |
+|------|-------------|
+| **Rate Confirmation** | Auto-tagged for price, date, locations, broker info |
+| **Broker Packet** | Parsed into form script via PacketPilot |
+| **BOL / Proof of Delivery** | Extracts signatures, dates, and cargo content |
+| **W9 / COI** | Extracts PDF metadata + field structure for reuse |
+
+---
+
+## Agent Integration
+
+- **PacketPilot**: Pulls parsed JSON and fills broker packets in seconds
+- **CargoConnect**: Uses parsed rate cons to verify offers and timelines
+- **OpenHWY**: Stores extracted summaries for compliance + searchable recordkeeping
+
+---
+
+## Dependencies
+
+| Tool | Role |
+|------|------|
+| `PyMuPDF` or `pdfplumber` | PDF extraction |
+| `Tesseract` or `Vision API` | OCR |
+| `OpenAI` or Local LLM | Layout tagging |
+| `MARK` | Executes fill scripts based on extracted document JSON |
+| `DuckDB` | Stores metadata locally if offline |
+
+---
+
+## Tagline
+
+> **OCR + GPT vision.**
+
+---
+
+## File Location
+.project/docs/FED/features/document-intelligence.md

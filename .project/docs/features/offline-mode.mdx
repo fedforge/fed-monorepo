@@ -1,0 +1,68 @@
+# Feature: Offline Mode
+
+## Description
+
+**Offline Mode** allows dispatchers to continue using core tools and workflows without an internet connection. All data is stored securely in encrypted local storage (using DuckDB), and syncs with the cloud once the device reconnects. This is essential for field dispatchers, mobile fleets, and rural coverage zones.
+
+Offline Mode turns FED into a resilient, local-first dispatch system — not just a web app.
+
+---
+
+## Core Capabilities
+
+- 💾 **Local Storage Engine**
+  - Uses DuckDB for structured local data (loads, packets, calls)
+  - Indexed for full offline search, filtering, and metadata tagging
+
+- 🧠 **Agent-Only Mode**
+  - Agents like PacketPilot, Whisper, and MARK continue functioning offline
+  - Preloaded prompt templates and cached scripts run in local memory
+
+- 🔄 **Auto Sync-on-Reconnect**
+  - When internet returns, all offline actions are hashed, verified, and synced via OpenHWY
+  - Duplicate entries are deduplicated automatically using timeline metadata
+
+- 🧾 **Offline Packet Queue**
+  - Packets can be filled, signed, and saved locally
+  - Once back online, users can auto-submit or edit before sending
+
+---
+
+## Use Case Examples
+
+- Dispatcher loses internet during a broker call → FED continues Whisper transcription and logs session locally
+- Driver in low-signal area uploads delivery photo and notes → saved offline and syncs at next hotspot
+- Admin configures MARK to run offline load simulations every night from preloaded route data
+
+---
+
+## Privacy & Security
+
+- Offline data is:
+  - AES-encrypted locally
+  - Never shared unless Node Network or cloud sync is enabled
+  - Compliant with user `.consent.md` settings
+
+---
+
+## File System Footprint
+
+```bash
+~/FED/data/
+├── packets.db
+├── logs/
+│   ├── calls/
+│   ├── uploads/
+├── settings.yaml
+````
+
+---
+
+## Tagline
+
+> **Local-first engine.**
+
+---
+
+## File Location
+.project/docs/FED/features/offline-mode.md

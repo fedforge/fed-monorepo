@@ -1,0 +1,99 @@
+# OpenHWY
+
+## Overview
+
+**OpenHWY** is the infrastructure brain, license authority, and memory ledger of the entire system.
+
+It is:
+- The legal + compliance layer
+- The persistent log & consent vault
+- The cross-agent **truth keeper**
+- The TMS of record behind every FED action
+
+Where FED runs the front, and MARK runs execution — OpenHWY keeps the **history, rules, and law.**
+
+---
+
+## Core Responsibilities
+
+| Capability         | Description                                                   |
+|--------------------|---------------------------------------------------------------|
+| `license_model`    | Enforces access based on plan, roles, and agent permissions    |
+| `memory_ledger`    | Stores logs, session history, rate calls, tool usage           |
+| `consent_chain`    | Verifies user + agent agreement for each sensitive action      |
+| `audit_logs`       | Tracks every call, whisper, tool run, and failure              |
+| `tms_features`     | Optional: store loads, BOLs, contracts for fleets & shippers   |
+| `agent_verifier`   | Approves new agents and tracks their lifecycle and updates     |
+
+---
+
+## OpenHWY As A Platform
+
+- **Public-facing**: `open-hwy.com`
+- **Internal API**: used by FED, PacketPilot, CargoConnect, ELDA, etc.
+- **Optional license enforcement** for third-party integrations
+- **All agent and tool metadata** stored under OpenHWY registry
+
+---
+
+## Example Consent Chain
+
+```yaml
+action: fill_packet
+initiated_by: fed-user-881
+agent: packetpilot
+tool: packet-fill
+data_used:
+  - ratecon.pdf
+  - mc_number
+consent_status: granted
+timestamp: 2025-05-19T10:04:22Z
+````
+
+This chain is encrypted and stored in:
+
+```
+.openhwy/ledger/packetpilot/2025-05-19/
+```
+
+---
+
+## API Use Cases
+
+* `POST /api/openhwy/license/check`
+* `GET /api/openhwy/agent/logs?agent=elda`
+* `POST /api/openhwy/session/store`
+* `POST /api/openhwy/tool/consent-request`
+* `GET /api/openhwy/load-history?mc=123456`
+
+---
+
+## Agent Registry Sample
+
+```yaml
+packetpilot:
+  registered: true
+  last_updated: 2025-05-01
+  version: 1.2.0
+  approved_by: elda
+  type: agent
+  compliance:
+    - consent_required
+    - memory_safe
+    - legal_disclaimer_on
+```
+
+---
+
+## OpenHWY Compliance Modes
+
+| Tier         | Enforces         | Required For             |
+| ------------ | ---------------- | ------------------------ |
+| `Lite`       | Logs + consent   | Free users               |
+| `Core`       | Full session map | Pro/Starter/Boss         |
+| `Enterprise` | License + NDA    | Broker / Fleet contracts |
+
+---
+
+## File Location
+.project/docs/agents/openhwy.md

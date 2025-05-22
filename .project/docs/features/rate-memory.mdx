@@ -1,0 +1,74 @@
+# Feature: Rate Memory
+
+## Description
+
+**Rate Memory** is FED’s intelligent internal memory system for capturing, tagging, and reacting to historical rate information across loads, brokers, lanes, and time windows. It enables FED and its agents (like PacketPilot and CargoConnect) to recognize pricing trends, detect underbidding, and advise users on negotiation leverage — without violating user privacy or data rights.
+
+FED only builds Rate Memory when users opt-in via the Node Network.
+
+---
+
+## Core Capabilities
+
+- 💾 **Persistent Rate Logging**
+  - Each time a rate is observed (via call, load board, or manual input), it is optionally stored in the local DuckDB instance
+  - Data is fingerprinted: lane, mileage, equipment, offer, broker alias, user region
+
+- 🧠 **Pattern Recognition**
+  - When a new load or broker call comes in, Rate Memory checks for similar historical rates
+  - Compares lane, region, timing, prior offers, and alert triggers
+
+- 🧭 **AI Decision Support**
+  - Fed whispers when a current rate is suspiciously low or if a broker’s language matches a known pattern
+  - CargoConnect may auto-flag a lowball broker before PacketPilot even opens a packet
+
+- 🔄 **Real-Time Updating**
+  - Rate entries update hourly if connected via CargoConnect or OpenHWY feeds
+  - Whisper call logs (if consented) are also parsed for verbal price tags and stored
+
+---
+
+## Rate Memory Data Fields
+
+| Field | Example |
+|-------|---------|
+| `origin` | Atlanta, GA |
+| `destination` | Chicago, IL |
+| `equipment` | Reefer |
+| `rate_offered` | $1.87/mile |
+| `broker_alias` | "FastFreight Inc." |
+| `timestamp` | 2025-05-18 14:03:22 |
+| `source` | Call via Whisper |
+| `pattern_hash` | `sha256(ATL-CHI-FreightInc-May-Monday-AM)` |
+| `feedback` | [ACCEPTED | REJECTED | COUNTERED] |
+
+---
+
+## Memory Locations
+
+- **Local (Default)**: Stored in DuckDB on device
+- **Synced (Node)**: Shared across Node Network if user opts in
+- **Cached**: Rate insights delivered in real-time via CargoConnect integrations
+
+---
+
+## OpenHWY Integration
+
+- When users opt-in to rate sharing, anonymized and hashed rate records are also indexed into OpenHWY for federated intelligence
+- OpenHWY acts as the **historical rate archive + trust vault**
+
+---
+
+## Use Cases
+
+| Agent | Reaction |
+|-------|----------|
+| **Fed (Free Plan)** | “This offer is below the average for this lane.” |
+| **Fed (Boss Plan)** | “This broker previously offered $2.31 on the same lane last Thursday.” |
+| **PacketPilot** | “Autofilled from past rate-approved packet, last used 3 days ago.” |
+| **CargoConnect** | “Load from low-trust broker. Recommend second source verification.” |
+
+---
+
+## File Location
+.project/docs/FED/features/rate-memory.md

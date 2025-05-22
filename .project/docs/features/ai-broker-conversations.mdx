@@ -1,0 +1,70 @@
+# Feature: AI Broker Conversations
+
+## Description
+
+**AI Broker Conversations** allows FED to communicate directly with brokers on the user's behalf — via email or phone — using preset negotiation prompts and the dispatcher’s own tone and language style. FED can whisper back suggestions, generate rebuttals, or even simulate full calls in advanced plans.
+
+This feature transforms brokers from obstacles into automated negotiations, all powered by your preferences.
+
+---
+
+## Core Capabilities
+
+- 📞 **AI-Powered Phone Calls**
+  - FED uses Twilio or Whisper to listen to live broker calls and optionally respond
+  - Dispatcher can choose to have FED whisper insights or fully simulate their voice style
+
+- 📧 **Email Negotiation Assistant**
+  - FED can write, format, and send emails to brokers using dispatcher presets
+  - Language tone (polite, firm, aggressive) is configurable by user profile
+
+- 🧠 **Tone-Matching Model**
+  - FED mirrors the user’s negotiation style based on stored call patterns and prompt presets
+  - Broker-specific memory enables smart follow-ups and reminders
+
+- 🔐 **Voice Privacy**
+  - FED never uses actual user audio unless authorized
+  - Voice cloning is optional and only enabled for Boss+ plans with custom TTS models
+
+---
+
+## Example Scenarios
+
+- Broker sends rate confirmation with lowball offer  
+  → FED auto-replies with counter and justifying rate based on memory
+
+- Dispatcher presses “Call”  
+  → FED opens call window, listens live, and whispers intelligent prompts
+
+- Caller stalls  
+  → FED detects and suggests: “Offer $250 more or request FSC”
+
+---
+
+## Permissions & Consent
+
+- All calls and emails are sent only with dispatcher approval
+- FED’s whisper/voice AI respects `.consent.md` settings
+- Stored call summaries or broker responses require explicit storage opt-in
+
+---
+
+## Plan Access
+
+| Plan | Access |
+|------|--------|
+| **Free** | Email generation only, no voice |
+| **Starter** | Whisper insights on live calls |
+| **Pro** | Email + call assistant, tone adaptation |
+| **Boss** | Full voice cloning + autonomous negotiation AI (manual override available) |
+
+---
+
+## Tagline
+
+> **AI negotiator, human voice.**
+
+---
+
+## File Location
+.project/docs/FED/features/ai-broker-conversations.md

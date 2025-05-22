@@ -1,0 +1,276 @@
+# API: Dashboard API
+
+## Description
+
+The **Dashboard API** powers all real-time interactions between FED’s front-end UI and its backend services. This API acts as the connective layer between user actions, agent status updates, live load data, and Whisper/PacketPilot activity logs.
+
+The Dashboard API is built with FastAPI, designed for high concurrency and scalable event-based communication (WebSockets, async REST).
+
+---
+
+## Core Endpoints
+
+### 🟢 Agent Status
+
+```http
+GET /api/agent/status
+````
+
+* Returns the currently active agent (e.g., `fed`, `packetpilot`, `cargoconnect`)
+* Returns activity status: `idle`, `listening`, `filling`, `paused`, `responding`
+
+---
+
+### 🟣 Active Screen
+
+```http
+POST /api/dashboard/view
+```
+
+**Body:**
+
+```json
+{
+  "agent": "fed",
+  "view": "calls"
+}
+```
+
+* Updates the currently active dashboard panel
+* Used to sync the UI tab display (loads, calls, forms, settings)
+
+---
+
+### 🔄 Insight Metrics
+
+```http
+GET /api/insights/summary
+```
+
+* Returns dynamic data cards:
+
+  * Total loads matched today
+  * Packets autofilled
+  * Calls flagged by screening
+  * Whisper memory alerts
+
+---
+
+### 📂 Whisper Logs (Boss plan only)
+
+```http
+GET /api/whisper/recent
+```
+
+* Returns last 10 Whisper summaries (if storage is permitted)
+* Each log includes:
+
+  * Call ID
+  * Summary
+  * Flag triggers
+  * Timestamps
+
+---
+
+### 📥 Action Queue
+
+```http
+GET /api/queue/actions
+```
+
+* Returns all pending user actions (e.g., "Fill packet for broker X", "Review flagged call")
+
+---
+
+### 🧠 Node Memory Ping
+
+```http
+POST /api/node/rate-check
+```
+
+**Body:**
+
+```json
+{
+  "origin": "Atlanta, GA",
+  "destination": "Chicago, IL",
+  "broker_alias": "FastFreight"
+}
+```
+
+* Checks Node memory (if enabled) for recent rate trends or flags
+* Returns:
+
+  * Average lane rate
+  * Last known broker behavior
+  * Alert level (none / yellow / red)
+
+---
+
+## Auth & Permissions
+
+All Dashboard API endpoints use:
+
+* JWT token (user login)
+* Agent-level scopes (`read:status`, `write:view`, `read:queue`)
+* Consent checks via `.consent.md` and OpenHWY middleware
+* Whisper, Node, and Screening endpoints are disabled unless enabled by plan
+
+---
+
+## WebSocket Channels (Live Updates)
+
+| Channel        | Use                                         |
+| -------------- | ------------------------------------------- |
+| `/ws/agent`    | Real-time agent status changes              |
+| `/ws/insights` | Live metric updates (calls, loads, packets) |
+| `/ws/alerts`   | Screening warnings or Whisper triggers      |
+
+---
+
+## File Location
+.project/docs/FED/api/dashboard-api.md
+
+
+<------------------------------------------------------------------------->
+## EXTRA NOTES
+<------------------------------------------------------------------------->
+
+
+# Dashboard API
+
+## Overview
+
+The FED Dashboard API powers all authenticated user interactions with the frontend web app. This includes:
+
+- Loading dispatcher data
+- Handling tool usage (PacketPilot, CargoConnect, ELDA)
+- Triggering Whisper listening and call detection
+- Fetching agent memory
+- Executing API logic routed through MARK or directly via FastAPI
+
+---
+
+## Authentication
+
+All dashboard API routes require:
+
+- JWT bearer token from login
+- User role context (dispatcher, owner-op, broker)
+- Optional session key (for live memory)
+
+```http
+Authorization: Bearer <jwt>
+````
+
+---
+
+## Core Routes
+
+| Route                               | Method | Description                               |
+| ----------------------------------- | ------ | ----------------------------------------- |
+| `/api/dashboard/me`                 | GET    | Get current user profile and plan         |
+| `/api/dashboard/agents`             | GET    | List available agents + status            |
+| `/api/dashboard/tools/{id}/trigger` | POST   | Trigger tool execution from UI            |
+| `/api/dashboard/loadboard`          | GET    | Return user-specific CargoConnect loads   |
+| `/api/dashboard/call/log`           | POST   | Submit a Whisper call transcript + tags   |
+| `/api/dashboard/memory`             | POST   | Inject memory context into active session |
+
+---
+
+## Sample: Fetch Dashboard Tools
+
+```http
+GET /api/dashboard/agents
+Authorization: Bearer <token>
+```
+
+```json
+[
+  {
+    "id": "packetpilot",
+    "status": "ready",
+    "last_used": "2025-05-18T17:01:00Z"
+  },
+  {
+    "id": "elda",
+    "status": "active"
+  }
+]
+```
+
+---
+
+## Triggering Tool from UI
+
+```http
+POST /api/dashboard/tools/packetpilot/trigger
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+```json
+{
+  "inputs": {
+    "ratecon": "data:application/pdf;base64,..."
+  },
+  "context": {
+    "session": "session_78912",
+    "plan": "pro"
+  }
+}
+```
+
+Returns:
+
+```json
+{
+  "status": "success",
+  "output_url": "/downloads/filled-packet-1099.json"
+}
+```
+
+---
+
+## Whisper-Driven Call Logging
+
+This endpoint is used by the Whisper agent when a dispatcher finishes a call:
+
+```http
+POST /api/dashboard/call/log
+```
+
+```json
+{
+  "transcript": "Yeah, I can move it for $1800...",
+  "broker": "TQL",
+  "rate": "$1800",
+  "tags": ["lowball", "emotional-language"],
+  "tool": "whisper-alerts"
+}
+```
+
+---
+
+## Agent Memory Sync
+
+```http
+POST /api/dashboard/memory
+```
+
+```json
+{
+  "agent": "packetpilot",
+  "key": "recent_rate_window",
+  "value": {
+    "origin": "Dallas, TX",
+    "destination": "Charlotte, NC",
+    "range": "$1650 - $1900"
+  }
+}
+```
+
+---
+
+## File Location
+.project/docs/platforms/FED/api/dashboard-api.md

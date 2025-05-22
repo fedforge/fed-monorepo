@@ -1,0 +1,78 @@
+# Feature: Customizable Tools per Fleet
+
+## Description
+
+**Customizable Tools per Fleet** gives dispatchers, fleet owners, and account admins the power to personalize the FED dashboard per user, team, or business unit. It allows for enabling/disabling tools, rebranding sections, and applying permission-based access to PacketPilot, CargoConnect, ELDA, and more.
+
+The system supports white-labeling for enterprise dispatchers and fine-grained control for growing fleets.
+
+---
+
+## Core Capabilities
+
+- 🧩 **Tool Visibility Controls**
+  - Toggle visibility of specific agents/tools: PacketPilot, CargoConnect, ELDA, Rate Memory, Screening, etc.
+  - Set visibility by dispatcher, role, or company tier
+
+- 🏷️ **Fleet Branding**
+  - Customize dashboard colors, logo, agent names (e.g. rename “ELDA” to “CoachBot”)
+  - Supports white-label mode for enterprise
+
+- 🔐 **Role-Based Permissions**
+  - Admins assign roles (e.g., junior dispatcher, senior dispatcher, auditor)
+  - Each role has predefined access to tools, APIs, and dashboards
+
+- 🧠 **Usage Analytics**
+  - FED tracks which tools are used most by each role/fleet
+  - Admins can adjust available tools based on performance
+
+---
+
+## Example Use Cases
+
+- A solo dispatcher hides ELDA and CargoConnect to keep interface minimal
+- A large fleet gives dispatchers access to PacketPilot only, and managers access to ELDA’s safety dashboard
+- A white-labeled instance shows only branding for the client fleet (“SpeedHaul Dispatch” instead of FED)
+
+---
+
+## Configuration File (Concept)
+
+```yaml
+fleet:
+  name: "SpeedHaul Logistics"
+  tools_enabled:
+    - packetpilot
+    - dashboard
+    - screening
+  branding:
+    logo: "speedhaul-logo.png"
+    color_theme: "blue"
+  roles:
+    junior_dispatcher:
+      tools: [packetpilot]
+    manager:
+      tools: [all]
+````
+
+---
+
+## Plan Access
+
+| Plan        | Fleet Customization                                  |
+| ----------- | ---------------------------------------------------- |
+| **Free**    | Basic dashboard tool toggle (personal only)          |
+| **Starter** | Multi-dispatcher role configs                        |
+| **Pro**     | Fleet-based branding + tool filtering                |
+| **Boss**    | Full white-label support, API config, priority rules |
+
+---
+
+## Tagline
+
+> **Fleet config ready.**
+
+---
+
+## File Location
+.project/docs/FED/features/customizable-tools-per-fleet.md

@@ -1,0 +1,74 @@
+# 📦 PacketPilot Agent (`packetpilot.mark`)
+
+**Agent Name:** PacketPilot  
+**Parent Controller:** `fed.mark`  
+**Agent Type:** Autonomous document processing & packet generator  
+**Invocation:** Triggered by FED via dispatcher action or system events
+
+---
+
+## 🧠 Role
+PacketPilot is an AI dispatching assistant that handles everything related to broker packets, rate confirmations, and onboarding documents. It can extract, parse, autofill, and deliver structured packet data for both manual and automated workflows.
+
+---
+
+## 🛠 Tools Used
+- `ocr-extract.marker` – Vision AI to parse text from images or scanned PDFs  
+- `mc-lookup.marker` – Fetch carrier data by MC# or DOT#  
+- `form-autofill.marker` – Fill out digital forms using parsed data  
+- `signature-binder.marker` – Attach dispatcher/company signatures  
+- `pdf-compiler.marker` – Combine all docs into a ready-to-send broker packet  
+- `ratecon-parser.marker` – Detect and extract data from rate confirmation PDFs  
+- `json-normalizer.marker` – Standardize outbound packet format  
+
+---
+
+## 🧪 Triggers
+This agent is activated when:
+
+- A dispatcher uploads a new packet or document  
+- A new broker ratecon arrives via email or upload  
+- A dispatcher clicks "Autofill Packet"  
+- A CLI task from `mark --marker agents/packetpilot.marker` is called  
+
+---
+
+## 🧾 Responsibilities
+- Parse PDFs, images, and scans  
+- Extract structured data: MC#, address, email, company name  
+- Auto-fill broker packet templates  
+- Bind dispatcher’s signature and info  
+- Prepare downloadable + sendable packet format (PDF + JSON)  
+- Return data to `fed.mark` for dispatch record logging  
+
+---
+
+## 🔐 Limitations
+- Cannot dispatch directly — only prepares packets  
+- Cannot view private fleet data unless explicitly granted  
+- Delegates communication to `fed.mark`  
+
+---
+
+## 🧬 Output
+```json
+{
+  "status": "ready",
+  "packet": {
+    "pdf_path": "/packets/generated/PP-2025-05-21.pdf",
+    "json_payload": {
+      "carrier_name": "Fast Freight Co",
+      "mc_number": "1234567",
+      "broker_email": "load@broker.com",
+      "signature_bound": true
+    }
+  }
+}
+
+---
+
+📣 Notes
+
+PacketPilot is always called under the authority of FED, and should never persist records without being routed through the main dashboard kernel.
+
+    PacketPilot does one thing — make dispatching paperwork instant.

@@ -1,0 +1,75 @@
+# Feature: Screening Tier
+
+## Description
+
+The **Screening Tier** is FED’s AI-powered call analysis system that detects negotiation tactics, broker scripts, tone shifts, and red flags in real-time. Screening minutes are limited by plan, and can be upgraded for deeper engagement and live whispering guidance.
+
+Unlike passive transcription, **screening actively thinks**, listens, and flags tactics while a conversation is happening.
+
+---
+
+## Core Capabilities
+
+- 🎧 **Active Listening**
+  - During broker or dispatcher calls, FED monitors language, pauses, and pricing language
+  - Utilizes Whisper + prompt-driven inference to identify tactics
+
+- ⚠️ **Trigger Flagging**
+  - Detects known lowball phrases, stall tactics, pressure language, or bait terms
+  - Example: “Just call me back in an hour” → flagged as a “Soft Stall”
+
+- 💬 **User Notification**
+  - In free and starter tiers: user receives subtle screen highlight, tone, or vibration alert
+  - In higher tiers: FED may whisper soft advice (“That’s 23% below lane average”)
+
+- 🧠 **Response Prompting**
+  - If user allows, FED may provide quick voice/text options like:
+    - “Ask if it includes FSC.”
+    - “Confirm detention policy.”
+    - “Decline. Ask for revised offer.”
+
+---
+
+## Tiers and Access
+
+| Plan | Minutes | Features |
+|------|---------|----------|
+| **Free** | 20 mins/mo | Soft alerts only. Preset prompt triggers. |
+| **Starter** | 300 mins/mo | Live alerts, whisper insight, memory logging |
+| **Pro** | 1000 mins/mo | Full tactical detection, smart prompts, archive |
+| **Boss** | 3000 mins/mo | Multi-agent support, ELDA regulation analysis, dynamic AI tone control |
+
+---
+
+## Consent & Safety
+
+- Screening is **always visible** to the user
+- Users are prompted before any session begins
+- Sessions are **never stored unless opted-in**
+- Shared memory for analysis requires **Node Network** opt-in
+- ELDA enforces that Screening Tier never impersonates the user
+
+---
+
+## OpenHWY Integration
+
+- All screened call logs (if stored) are hashed and indexed in OpenHWY for audit and legal compliance
+- Screening alerts can trigger regulation-based warnings (e.g., ELDA detects risk of misclassification)
+
+---
+
+## Dependencies
+
+| Component | Tech |
+|-----------|------|
+| Audio Transcription | Whisper (local or API) |
+| Inference Engine | OpenAI (or Local LLM) |
+| Memory Index | DuckDB |
+| Runtime Logic | MARK (Agent Kernel) |
+| Regulation Check | ELDA |
+| Traceability | OpenHWY |
+
+---
+
+## File Location
+.project/docs/FED/features/screening-tier.md

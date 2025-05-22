@@ -1,0 +1,70 @@
+# Feature: Real-Time Load Sync
+
+## Description
+
+**Real-Time Load Sync** allows FED and CargoConnect to continuously pull, parse, and display load data from connected load boards and internal APIs. Loads appear instantly inside the dashboard, allowing dispatchers to assign, filter, or match without toggling platforms.
+
+This system turns third-party boards into a unified dispatch feed, powered by user credentials or embedded API contracts.
+
+---
+
+## Core Capabilities
+
+- 🔄 **Live Board Sync**
+  - Connects with load boards such as DAT, Truckstop, 123Loadboard (via user credentials)
+  - Syncs new posts every few seconds to minutes, depending on tier
+  - Displays results inside FED dashboard’s Load tab
+
+- 🌐 **Internal + External Boards**
+  - Supports both public boards and internal APIs (e.g., private fleets or brokers)
+  - Broker-specific portals can be linked manually or through CargoConnect
+
+- 🔎 **Smart Filtering**
+  - Automatically detects user region, lane history, equipment, and rate thresholds
+  - Ranks and flags best load matches
+
+- 🧠 **PacketPilot Integration**
+  - Loads appearing in sync view can be instantly passed to PacketPilot to begin packet prep if selected
+
+---
+
+## Supported Sources
+
+| Type | Example |
+|------|---------|
+| **External Board** | DAT, Truckstop, Internet Truckstop |
+| **Internal API** | Private broker portals, connected dispatch TMS |
+| **Manual URL Add** | User pastes load link → CargoConnect parses |
+
+---
+
+## Usage Flow
+
+```plaintext
+User logs in to CargoConnect →
+Selects “Sync Load Boards” →
+Loads populate dashboard in real-time →
+User can filter, flag, dispatch, or start a call
+````
+
+---
+
+## Tagline
+
+> **Board-sync built in.**
+
+---
+
+## Requirements
+
+* Plan: Starter and above
+* Dependencies:
+
+  * `CargoConnect.mark`
+  * User-approved credential locker (local or encrypted)
+  * Board-specific selectors or API tokens
+
+---
+
+## File Location
+.project/docs/FED/features/real-time-load-sync.md
