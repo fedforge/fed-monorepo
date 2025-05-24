@@ -1,32 +1,22 @@
 {
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "apps/**/.next/**",
-        "apps/**/build/**",
-        "apps/**/out/**",
-        "packages/**/dist/**",
-        "!**/.next/cache/**"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
-    "export": {
-      "dependsOn": ["build"],
-      "outputs": ["apps/**/out/**"]
+    "lint": {
+      "dependsOn": ["^lint"]
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
-    "lint": {
-      "outputs": []
-    },
-    "test": {
-      "outputs": ["coverage/**"]
-    },
-    "storybook": {
-      "cache": false,
-      "persistent": true
+    "//#format-and-lint": {},
+    "//#format-and-lint:fix": {
+      "cache": false
     }
   }
 }
