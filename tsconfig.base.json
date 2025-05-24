@@ -1,41 +1,19 @@
 {
   "compilerOptions": {
-    // 🧠 Core JS/TS Settings
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "checkJs": false,
-
-    // ✅ Strictness
+    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-
-    // 💡 JSX default (overridable per tsconfig)
-    "jsx": "react-native",
-
-    // 🛣️ Monorepo Paths
+    "declaration": true,
+    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["packages/app/*"],
-      "@ui/*": ["packages/ui/*"],
-      "@hooks/*": ["packages/hooks/*"],
-      "@types/*": ["packages/types/*"],
-      "@libs/*": ["packages/libs/*"],
-      "@constants/*": ["packages/constants/*"],
-      "@components/*": ["packages/components/*"],
-      "@config/*": ["packages/config/*"],
-
-      "@web/*": ["apps/web/*"],
-      "@mobile/*": ["apps/mobile/*"]
+      "@fed/*": ["packages/*/src"]
     }
-  },
-  "exclude": ["node_modules", "dist", ".turbo"]
+  }
 }

@@ -1,5 +1,5 @@
-import { NativeNavigation } from 'packages/core/navigation/native'
-import { Provider } from 'packages/core/provider'
+import { NativeNavigation } from '@app/navigation/native'
+import { Provider } from '@app/provider'
 
 export default function App() {
   return (

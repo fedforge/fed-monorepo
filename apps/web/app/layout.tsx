@@ -3,7 +3,7 @@
 
 import FloatingNavbar from '@web/components/nav/FloatingNavbar'
 import '@web/styles/globals.css'
-import { Provider } from 'packages/core/provider'
+import { Provider } from '@app/provider'
 import React from 'react'
 
 export const metadata = {

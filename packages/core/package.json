@@ -1,35 +1,16 @@
 {
-  "name": "@fed/app",
-  "version": "1.0.0",
+  "name": "@fed/core",
+  "version": "0.1.0",
   "private": true,
-  "main": "index.ts",
-  "types": "index.ts",
-  "sideEffects": false,
-  "exports": {
-    ".": "./index.ts",
-    "./provider/*": "./provider/*",
-    "./navigation/*": "./navigation/*",
-    "./features/*": "./features/*"
-  },
-  "files": [
-    "index.ts",
-    "provider",
-    "navigation",
-    "features"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --build"
-  },
-  "dependencies": {
-    "@react-navigation/native": "^7.0.15",
-    "@react-navigation/native-stack": "^7.2.1",
-    "dripsy": "^4.3.3",
-    "moti": "^0.30.0",
-    "solito": "4.4.1",
-    "react": "^18.2.0",
-    "react-native": "0.76.7"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint src"
   },
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "eslint": "^8.57.0"
   }
 }
