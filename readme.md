@@ -1,113 +1,94 @@
-# FED – Fast & Easy Dispatching
+---
 
-**This is not a template. This is a system.**  
-Everything in this repo is custom-built. Every line of logic. Every folder. Every agent. Every route.  
-FED is an AI dispatch orchestration platform. Built by one person. Built to run alone. Built to never break.
+## 🧠 How It All Connects
+
+FED doesn’t live alone. It’s one side of a system.
+
+### 🔹 FED (Fast & Easy Dispatching)
+The dispatch engine.  
+Built to execute.  
+Calls brokers. Retrieves load details. Sends packets.  
+Does not negotiate unless you tell it to.  
+You set up the Twilio number. You define the prompts.  
+You watch. You listen. You jump in. Or you let it run.  
+Your AI is not in control. You are.
+
+### 🔹 ELDA (Ethical Logistics Driving Assistant)
+The driver’s protector.  
+She sits in front of the driver — not you.  
+She decides whether a dispatcher is trustworthy.  
+She will prevent unethical calls.  
+She refuses to negotiate unless permission is granted.  
+She is MIT. Build your own version. Connect it. Or don’t.  
+But if you want driver trust? She’s the gate.
+
+### 🔹 HWY (Highway Watch Yard)
+The logger. The ethics. The badge ledger.  
+HWY tracks agent updates, dispatch activity, and driver milestones.  
+You connect FED and ELDA to HWY to get badges.  
+Badges are trust.  
+Badges are earned through real work — calls, miles, activity.  
+HWY is MIT. Use it or don’t. But if you want structure, that’s your foundation.
 
 ---
 
-## 🚛 What Is FED?
+## 🌐 OpenHighway
 
-FED is an orchestration system for freight dispatchers, agents, and real operators. It’s not a product. It’s not a service. It’s not SaaS.
+OpenHighway is the nonprofit brain that ties it all together.  
+It’s the one that **was built to serve the roads, not control them**.
 
-It’s the logic, layout, and foundation for running:
-- Your own dispatch platform
-- Your own agents
-- Your own load system
-- Your own driver access layer
-- Your own infrastructure, if you’re good enough
+- When ELDA uses OpenHighway, she becomes **ethics-powered**.
+- When FED checks in with HWY, it updates **badges** and **proof of work**.
+- When dispatchers or drivers accumulate real miles or calls, **they earn votes**.
+- When funding goes in, **those votes decide** which highways need rebuilt.
 
-It runs by protocol.  
-It’s wired by `MARK`.  
-And it doesn’t run unless **you do**.
+This is not a simulation.  
+This is **real money**, **real votes**, **real infrastructure** — decided by **real drivers**.
 
----
-
-## 🧠 What You're Getting
-
-You're getting the full system:
-- The FED agent
-- The orchestrated tools
-- The dispatching logic
-- The UI wiring
-- The routing brain
-- The MARK protocol
-- The structure
-
-You're not getting:
-- My hosted drivers
-- My OpenHighway
-- My agents from ELDA or HWY
-- My ethics layer
-
-If you want access to that? Build trust. Or build your own.
+> “10,000 miles = 1 vote.  
+>  The road is broken? You saw it. You vote. We fix it.”  
+>  Not the government. Not the company. **The driver.**
 
 ---
 
-## 🧭 How It Works
+## 🧱 You Build What You Can Handle
 
-FED is not built on any third-party frontend stack.  
-No Solito. No ShadCN. No clone-and-go.  
-It’s built on the MARK system — a custom Markdown Agent Routing Kernel — that lets agents execute logic through `.mark` and `.marker` files.
+FED is open.  
+ELDA is open.  
+HWY is open.  
+OpenHighway is controlled — only because **ethics must be enforced**.
 
-Every action, every tool, every UI section is routed through MARK.
+Use what you need.  
+Build what you want.  
+Ignore what you don’t.  
+But don’t come asking why it doesn’t work if you didn’t wire it right.
 
----
+You’re not just dispatching.  
+You’re building a freight future that answers to **drivers**, not spreadsheets.
 
-## 🧩 Core Tech
+You don’t get that by downloading it.  
+You get that by running it.
 
-- `MARK`: CLI kernel that routes dispatch commands through Markdown
-- `PacketPilot`: Handles broker packet automation
-- `CargoConnect`: Parses and structures load boards
-- `ELDA`: Driver interface agent (optional — controlled)
-- `OpenHWY`: License-bound ethics layer (not open source)
-- `notebook/`: Every tool, every agent, every piece of logic stored in one structure
+— Jesse Conley  
+Fast & Easy Dispatching LLC  
+https://fedispatching.com  
 
-You’re expected to know how to run it. Or learn.
 
----
+👤 Who Is Jesse Conley?
 
-## 🔌 Host It Yourself
+    Jesse Conley is the one who built this.
 
-This isn’t click-to-launch.  
-This is DevOps, orchestration, AI, and system logic — built together.
+A former long-haul truck driver with over a decade on the road.
+Now an AI systems architect, builder, and founder of Fast & Easy Dispatching LLC.
+He writes his own protocols, builds his own tools, and doesn’t ask for permission.
 
-My stack looks like this:
+He didn’t come from Silicon Valley.
+He came from Mansfield, Ohio.
+From busted highways, broken dispatch systems, and watching drivers get ignored.
 
-| Purpose        | Machine/Infra       |
-|----------------|---------------------|
-| Inference      | Lenovo (OpenVINO)   |
-| Training       | ASUS (PyTorch/CUDA) |
-| Production     | Linode              |
-| Scale/Flex     | DigitalOcean        |
+He didn’t learn to code to get a job.
+He learned to code so no one could take his job again.
 
-Tailscale runs my secure tunnels.  
-Everything else is **mine** — and can be **yours** too if you run it.
-
----
-
-## 🔓 License
-
-This repo is MIT.
-
-FED and ELDA are free to use, rebuild, break, rewire, and launch.
-
-OpenHWY is not. OpenHWY is controlled. Because ethics matter more than open source.
-
----
-
-## 🧠 Final Words
-
-> I’m not here to sell you a product.  
-> I’m not here to convince you this is good.  
-> I built this so I could run my life the way I want — and if that helps you, take it.  
-
-Don’t ask for help.  
-Don’t expect support.  
-You run it, or you don’t.
-
-This system isn’t for everyone.  
-It’s for the ones who build anyway.
-
-– Jesse Conley  
-Fast & Easy Dispatching
+    “I built this because I needed it.
+    Now it’s yours — if you know how to run it.”
+    — Jesse
