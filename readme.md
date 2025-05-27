@@ -52,26 +52,28 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 ---
 
 ## 🧱 You Build What You Can Handle
+---
 
-This system is open. But that doesn’t mean it’s soft.
-This isn’t plug-and-play. This isn’t software-as-a-service.
-This is freight as a framework. Logic as a language. Dispatch as code.
+> This system is open. But that doesn’t mean it’s soft.  
+> This isn’t plug-and-play. This isn’t software-as-a-service.  
+> This is freight as a framework. Logic as a language. Dispatch as code.
 
-I’m not here to sell. I’m not here to scale.
-I’m here because I needed a system no one could take away.
-I built that system. And now I’m giving it to the ones who know what to do with it.
+> I’m not here to sell. I’m not here to scale.  
+> I’m here because I needed a system no one could take away.  
+> I built that system. And now I’m giving it to the ones who know what to do with it.
 
-If you’ve ever been ignored, underpaid, or outpaced by tech that wasn’t built for you—
-this repo is your chance to take that power back.
+> If you’ve ever been ignored, underpaid, or outpaced by tech that wasn’t built for you—  
+> this repo is your chance to take that power back.
 
-You’ll get no instructions.  
-You’ll get no help.  
-You’ll get everything I built, if you can hold it.
+> You’ll get no instructions.  
+> You’ll get no help.  
+> You’ll get everything I built, if you can hold it.
 
-— Jesse Conley  
-Fast & Easy Dispatching  
-Galion, OH
- 
+> — Jesse Conley  
+> Fast & Easy Dispatching  
+> Galion, OH  
+
+website: 
 https://fedispatching.com  
 
 
