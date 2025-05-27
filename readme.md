@@ -69,10 +69,6 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 > You’ll get no help.  
 > You’ll get everything I built, if you can hold it.
 
-> — Jesse Conley  
-> Fast & Easy Dispatching  
-> Galion, OH  
-
 website: 
 https://fedispatching.com  
 
@@ -96,6 +92,8 @@ He learned to code so no one could take his job again.
     Now it’s yours — if you know how to run it.”
     — Jesse
 
+---
+
 ## 🔧 Why This Exists
 
  - Because dispatching was never meant to be locked behind paywalls and paperwork.
@@ -110,11 +108,11 @@ This is a declaration.
 
 You’ve been:
 
- - Hung up on
+ -  Hung up on
  
- - Shut out
+ -  Shut out
 
- - Priced out
+ -  Priced out
 
  -  Overworked
 
@@ -131,3 +129,27 @@ If you’re anyone who wants control — then you’ve finally found your repo.
 
 You don’t need permission.
 You just need to run it.
+
+---
+
+## 🔗 Connect With Jesse
+
+If this hit something in you — follow the freight movement, not the feed.
+
+- 🌐 Website: [fedispatching.com](https://fedispatching.com)
+- 🧠 GitHub: [github.com/fedforge](https://github.com/fedforge)
+- ✖️ X (Twitter): [@fedispatching](https://x.com/fedispatching)
+- 📇 LinkedIn: [linkedin.com/in/fed-founder](https://linkedin.com/in/fed-founder)
+- 📬 Email: [fed.founder@gmail.com](mailto:fed.founder@gmail.com)
+
+---
+
+> **You found the repo. Now find the road.**
+
+This isn’t software.  
+This is a system.  
+Built by one.  
+For every dispatcher ready to run.
+
+— Jesse Conley  
+Fast & Easy Dispatching LLC
