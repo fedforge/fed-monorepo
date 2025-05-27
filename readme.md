@@ -92,3 +92,39 @@ He learned to code so no one could take his job again.
     “I built this because I needed it.
     Now it’s yours — if you know how to run it.”
     — Jesse
+
+🔧 Why This Exists
+
+    Because dispatching was never meant to be locked behind paywalls and paperwork.
+
+    Because AI should work for drivers — not exploit them.
+
+    Because most of what’s out there isn’t broken — it was never built right in the first place.
+
+This isn’t a side project.
+This isn’t a startup MVP.
+This is a declaration.
+
+You’ve been:
+
+    Hung up on
+
+    Shut out
+
+    Priced out
+
+    Overworked
+
+    Undertrained
+
+    Ignored by tech companies that never understood what a deadhead mile felt like
+
+This system exists because we're done waiting.
+
+    If you’re a driver who wants freedom — ELDA is waiting.
+    If you’re a dispatcher who wants power — FED is here.
+    If you’re a builder who wants purpose — HWY has the badge.
+    If you’re anyone who wants control — then you’ve finally found your repo.
+
+You don’t need permission.
+You just need to run it.
