@@ -83,7 +83,7 @@ Now an AI systems architect, builder, and founder of Fast & Easy Dispatching LLC
 He writes his own protocols, builds his own tools, and doesn’t ask for permission.
 
 He didn’t come from Silicon Valley.
-He came from Mansfield, Ohio.
+He came from Galion, Ohio.
 From busted highways, broken dispatch systems, and watching drivers get ignored.
 
 He didn’t learn to code to get a job.
