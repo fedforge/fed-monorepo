@@ -136,7 +136,7 @@ If this hit something in you — follow the freight movement, not the feed.
               [8teenwheelers.com](https://8teenwheelers.com), 
               [open-hwy.com](https://open-hwy.com)
 - 🧠 GitHub: [github.com/fedforge](https://github.com/fedforge)
-- ✖️ X (Twitter): [@fedispatching](https://x.com/fedispatching)
+- ✖️ X (Twitter): [@fedforge](https://x.com/fedforge)
 - 📇 LinkedIn: [linkedin.com/in/fed-founder](https://linkedin.com/in/fed-founder)
 - 📬 Email: [fed.founder@gmail.com](mailto:fed.founder@gmail.com)
 
