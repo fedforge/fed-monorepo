@@ -74,7 +74,7 @@ Fast & Easy Dispatching LLC
 https://fedispatching.com  
 
 
-👤 Who Is Jesse Conley?
+## 👤 Who Is Jesse Conley?
 
     Jesse Conley is the one who built this.
 
@@ -93,13 +93,13 @@ He learned to code so no one could take his job again.
     Now it’s yours — if you know how to run it.”
     — Jesse
 
-🔧 Why This Exists
+## 🔧 Why This Exists
 
-    Because dispatching was never meant to be locked behind paywalls and paperwork.
+ - Because dispatching was never meant to be locked behind paywalls and paperwork.
 
-    Because AI should work for drivers — not exploit them.
+ - Because AI should work for drivers — not exploit them.
 
-    Because most of what’s out there isn’t broken — it was never built right in the first place.
+ - Because most of what’s out there isn’t broken — it was never built right in the first place.
 
 This isn’t a side project.
 This isn’t a startup MVP.
@@ -107,24 +107,24 @@ This is a declaration.
 
 You’ve been:
 
-    Hung up on
+ - Hung up on
+ 
+ - Shut out
 
-    Shut out
+ - Priced out
 
-    Priced out
+ -  Overworked
 
-    Overworked
-
-    Undertrained
-
-    Ignored by tech companies that never understood what a deadhead mile felt like
+ -  Undertrained
+ 
+ -  Ignored by tech companies that never understood what a deadhead mile felt like
 
 This system exists because we're done waiting.
 
-    If you’re a driver who wants freedom — ELDA is waiting.
-    If you’re a dispatcher who wants power — FED is here.
-    If you’re a builder who wants purpose — HWY has the badge.
-    If you’re anyone who wants control — then you’ve finally found your repo.
+If you’re a driver who wants freedom — ELDA is waiting.
+If you’re a dispatcher who wants power — FED is here.
+If you’re a builder who wants purpose — HWY has the badge.
+If you’re anyone who wants control — then you’ve finally found your repo.
 
 You don’t need permission.
 You just need to run it.
