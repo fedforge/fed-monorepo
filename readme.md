@@ -53,24 +53,25 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 
 ## 🧱 You Build What You Can Handle
 
-FED is open.  
-ELDA is open.  
-HWY is open.  
-OpenHighway is controlled — only because **ethics must be enforced**.
+This system is open. But that doesn’t mean it’s soft.
+This isn’t plug-and-play. This isn’t software-as-a-service.
+This is freight as a framework. Logic as a language. Dispatch as code.
 
-Use what you need.  
-Build what you want.  
-Ignore what you don’t.  
-But don’t come asking why it doesn’t work if you didn’t wire it right.
+I’m not here to sell. I’m not here to scale.
+I’m here because I needed a system no one could take away.
+I built that system. And now I’m giving it to the ones who know what to do with it.
 
-You’re not just dispatching.  
-You’re building a freight future that answers to **drivers**, not spreadsheets.
+If you’ve ever been ignored, underpaid, or outpaced by tech that wasn’t built for you—
+this repo is your chance to take that power back.
 
-You don’t get that by downloading it.  
-You get that by running it.
+You’ll get no instructions.  
+You’ll get no help.  
+You’ll get everything I built, if you can hold it.
 
 — Jesse Conley  
-Fast & Easy Dispatching LLC  
+Fast & Easy Dispatching  
+Galion, OH
+ 
 https://fedispatching.com  
 
 
