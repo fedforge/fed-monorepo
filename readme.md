@@ -1,4 +1,3 @@
----
 
 ## 🧠 How It All Connects
 
@@ -52,7 +51,6 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 ---
 
 ## 🧱 You Build What You Can Handle
----
 
 > This system is open. But that doesn’t mean it’s soft.  
 > This isn’t plug-and-play. This isn’t software-as-a-service.  
@@ -72,6 +70,7 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 website: 
 https://fedispatching.com  
 
+---
 
 ## 👤 Who Is Jesse Conley?
 
