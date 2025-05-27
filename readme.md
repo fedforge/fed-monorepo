@@ -67,9 +67,6 @@ This is **real money**, **real votes**, **real infrastructure** — decided by *
 > You’ll get no help.  
 > You’ll get everything I built, if you can hold it.
 
-website: 
-https://fedispatching.com  
-
 ---
 
 ## 👤 Who Is Jesse Conley?
