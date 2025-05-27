@@ -136,6 +136,8 @@ You just need to run it.
 If this hit something in you — follow the freight movement, not the feed.
 
 - 🌐 Website: [fedispatching.com](https://fedispatching.com)
+              [8teenwheelers.com](https://8teenwheelers.com)
+              [open-hwy.com](https://open-hwy.com)
 - 🧠 GitHub: [github.com/fedforge](https://github.com/fedforge)
 - ✖️ X (Twitter): [@fedispatching](https://x.com/fedispatching)
 - 📇 LinkedIn: [linkedin.com/in/fed-founder](https://linkedin.com/in/fed-founder)
